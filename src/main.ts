@@ -30,11 +30,17 @@ function main(_container: HTMLElement | null){
     return;
   }
 
-  // controllo nei cookie se l'utente ha gia fatto l'accesso nel breve termine, in caso negativo passo al login
+  // controllo nei cookie se l'utente ha gia fatto l'accesso nel breve termine, in caso negativo passo al login di sotto
       // ...controllo
 
-  
   // gestione login
+  setUpLogin();
+
+  // click handler
+  container.addEventListener('click', _clickHandler);
+}
+
+function setUpLogin(){
   const loginInputWrappers: NodeListOf<HTMLElement> | null = container.querySelectorAll('.input-wrapper');
 
   if(loginInputWrappers){
@@ -54,9 +60,6 @@ function main(_container: HTMLElement | null){
       })
     })
   }
-
-  // click handler
-  container.addEventListener('click', _clickHandler);
 }
 
 function _clickHandler(e: MouseEvent){

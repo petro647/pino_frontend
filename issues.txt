@@ -1,0 +1,2 @@
+1- quando incollo una stringa dentro l' input di login, 
+il colore del testo è nero anche se da css è stato impostato il colore grigio.

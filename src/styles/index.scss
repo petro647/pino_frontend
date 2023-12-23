@@ -103,6 +103,22 @@
 				outline: none;
 			}
 		}
+
+		.or {
+			color: var(--dark-grey3);
+			user-select: none;
+		}
+
+		.anonymous-access {
+			color: var(--dark-grey3);
+			text-decoration: underline;
+			cursor: pointer;
+			user-select: none;
+
+			&:hover {
+				color: var(--dark-grey1);
+			}
+		}
 	}
 
 	// BOTTOM NAV //
