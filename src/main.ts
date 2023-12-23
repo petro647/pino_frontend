@@ -30,6 +30,10 @@ function main(_container: HTMLElement | null){
     return;
   }
 
+  // controllo nei cookie se l'utente ha gia fatto l'accesso nel breve termine, in caso negativo passo al login
+      // ...controllo
+
+  
   // gestione login
   const loginInputWrappers: NodeListOf<HTMLElement> | null = container.querySelectorAll('.input-wrapper');
 

@@ -37,6 +37,7 @@
 		width: 100%;
 		max-width: min(75%, 20rem);
 		gap: 2rem;
+		z-index: 9999;
 
 		button.login {
 			padding-block: var(--login-padding-block);
@@ -48,6 +49,7 @@
 			font-weight: 600;
 			font-size: 1.1rem;
 			cursor: pointer;
+			user-select: none;
 			transition: background-color ease 200ms;
 
 			&:hover, :active {
@@ -59,7 +61,7 @@
 
 		.input-wrapper {
 			position: relative;
-			--padding-left: 0.8rem;
+			--padding-left: 1.2rem;
 			width: 100%;
 			border: 3px solid var(--dark-grey3);
 			border-radius: var(--main-border-radious);
@@ -67,7 +69,7 @@
 			.username-placeholder, .password-placeholder {
 				background-color: var(--white2);
 				position: absolute;
-				left: var(--padding-left);
+				left: calc((var(--padding-left)) - 8px);
 				bottom: 50%;
 				padding-inline: 8px;
 				color: var(--dark-grey3);
@@ -88,7 +90,7 @@
 				padding-block: var(--login-padding-block);
 				background-color: var(--white2);
 				width: 100%;
-				font-weight: 600;
+				font-weight: 500;
 				font-size: 1.1rem;
 				color: var(--dark-grey3);
 				border: none;
@@ -122,6 +124,7 @@
 		.logo {
 			font-family: 'Righteous';
 			font-size: 2.6rem;
+			user-select: none;
 		}
 	}
 }
