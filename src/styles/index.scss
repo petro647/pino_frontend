@@ -1,6 +1,7 @@
 *{
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box
 }
 
 @import 'colors';
@@ -19,6 +20,9 @@
 	display: grid;
 	grid-template-rows: 1fr 1fr 3fr 3fr 3fr 1fr 1fr;
 	overflow: hidden;
+
+
+	// LOGIN PAGE //
 
 	.login-box {
 		--login-padding-block: 0.6rem;
@@ -60,7 +64,7 @@
 			border: 3px solid var(--dark-grey3);
 			border-radius: var(--main-border-radious);
 
-			.username-placeholder {
+			.username-placeholder, .password-placeholder {
 				background-color: var(--white2);
 				position: absolute;
 				left: var(--padding-left);
@@ -72,7 +76,7 @@
 				pointer-events: none;
 				transition: all ease 100ms;
 
-				&[data-typing-username="true"]{
+				&[data-typing="true"]{
 					transform: translateY(-80%);
 					font-size: 0.8rem;
 				}
@@ -89,6 +93,7 @@
 				color: var(--dark-grey3);
 				border: none;
 				border-radius: var(--main-border-radious);
+				text-decoration: none;
 			}
 
 			input.login:active, input.login:focus {
@@ -97,6 +102,8 @@
 			}
 		}
 	}
+
+	// BOTTOM NAV //
 
 	.bottom-nav{
 		color: var(--dark-grey3);

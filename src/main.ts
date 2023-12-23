@@ -23,23 +23,31 @@ class Global {
   }
 }
 
-const container = document.querySelector('.container') as HTMLElement;
+const container: HTMLElement | null = document.querySelector('.container');
 
-function main(_container: HTMLElement){
+function main(_container: HTMLElement | null){
   if(!container){
     return;
   }
 
   // gestione login
-  const loginInput = container.querySelector('input.login');
-  const usernamePlaceholder = container.querySelector('.username-placeholder');
-  if(loginInput){
-    loginInput.addEventListener('focus', () => {
-      usernamePlaceholder.setAttribute('data-typing-username', 'true');
-    })
+  const loginInputWrappers: NodeListOf<HTMLElement> | null = container.querySelectorAll('.input-wrapper');
 
-    loginInput.addEventListener('blur', () => {
-      usernamePlaceholder.setAttribute('data-typing-username', 'false');
+  if(loginInputWrappers){
+    loginInputWrappers.forEach(wrapper => {
+      const placeholder = wrapper.querySelector('.placeholder');
+      const input = wrapper.querySelector('input');
+
+      if(!placeholder || !input) return;
+
+      input.addEventListener('focus', () => {
+        placeholder.setAttribute('data-typing', 'true');
+      })
+
+      input.addEventListener('blur', () => {
+        if(input.value != '') return;
+        placeholder.setAttribute('data-typing', 'false');
+      })
     })
   }
 
