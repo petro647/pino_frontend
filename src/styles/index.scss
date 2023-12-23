@@ -63,12 +63,19 @@
 			.username-placeholder {
 				background-color: var(--white2);
 				position: absolute;
-				border-radius: var(--main-border-radious);
 				left: var(--padding-left);
 				bottom: 50%;
 				padding-inline: 8px;
 				color: var(--dark-grey3);
 				transform: translateY(50%);
+				user-select: none;
+				pointer-events: none;
+				transition: all ease 100ms;
+
+				&[data-typing-username="true"]{
+					transform: translateY(-80%);
+					font-size: 0.8rem;
+				}
 			}
 
 			input.login {
