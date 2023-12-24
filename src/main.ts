@@ -3,16 +3,10 @@
 */
 class Global {
   static instance: Global;
-  static states: Array<string> = new Array();
+  static state: string = 'login';
 
-  static removeState(_stateToRemove: string){
-    this.states = this.states.filter((_state) => {
-      return _state != _stateToRemove;
-    })
-  }
-
-  static addState(_stateToAdd: string){
-    this.states.push(_stateToAdd);
+  static setState(_stateToAdd: string){
+    this.state = _stateToAdd;
   }
 
   static getInstance() {
@@ -31,16 +25,19 @@ function main(_container: HTMLElement | null){
   }
 
   // controllo nei cookie se l'utente ha gia fatto l'accesso nel breve termine, in caso negativo passo al login di sotto
-      // ...controllo
+  // ...controllo
 
   // gestione login
-  setUpLogin();
+  if(Global.state == 'login'){
+    setUpLogin(container);
+  }
 
   // click handler
   container.addEventListener('click', _clickHandler);
+  container.addEventListener('input', _inputHandler);
 }
 
-function setUpLogin(){
+function setUpLogin(container: HTMLElement){
   const loginInputWrappers: NodeListOf<HTMLElement> | null = container.querySelectorAll('.input-wrapper');
 
   if(loginInputWrappers){
@@ -64,5 +61,35 @@ function setUpLogin(){
 
 function _clickHandler(e: MouseEvent){
   const target = e.target as HTMLElement;
+
+  if(target.matches('.input-wrapper .icon-wrapper')){
+    const input = target.parentElement?.querySelector('input');
+    const showHide = target.querySelector('img');
+    if(!showHide || !input) return;
+
+    if (input.getAttribute("type") === "password") {
+      input.setAttribute("type", "text");
+    } else {
+      input.setAttribute("type", "password");
+    }
+
+    showHide.classList.toggle('show-password');
+  }
 }
+
+function _inputHandler(e: Event){
+  const target = e.target as HTMLInputElement;
+
+  if(target.matches('input.login[name="password"]')){
+    const showHide = target.parentElement?.querySelector('img');
+    if(!showHide) return;
+
+    if(target.value == ''){
+      showHide.classList.toggle('show-img', false);
+      return;
+    }
+    showHide.classList.toggle('show-img', true);
+  }
+}
+
 main(container);
