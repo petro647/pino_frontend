@@ -9,35 +9,44 @@
   <body>
     <div id="app">
       <div class="container">
-				<div class="login-box">
 
-					<div class="input-wrapper">
-						<div class="username-placeholder placeholder">
-							Username
+				<!-- in data-state è memorizzato in che stato dell app il componente deve essere reso visibile, e.g. "data-state=login" significa che il componente dovra essere mostrato quando lo stato dell app è login -->
+
+				<div class="login-page" data-state="login">
+					<div class="top-nav">
+						<div class="left-nav">
 						</div>
-						<input type="text" name="username" class="login">
-					</div>
-
-					<div class="input-wrapper">
-						<div class="password-placeholder placeholder">
-							Password
+						<div class="logo">Pino</div>
+						<div class="right-nav">
 						</div>
-						<input type="text" name="password" class="login">
 					</div>
-					<button type="button" class="login">Accedi</button>
-
-					<div class="or">oppure</div>
-
-					<div class="anonymous-access">Accedi anonimamente</div>
-
+	
+					<div class="login-box">
+						<div class="input-wrapper">
+							<div class="username-placeholder placeholder">
+								Username
+							</div>
+							<input type="text" name="username" class="login">
+						</div>
+	
+						<div class="input-wrapper">
+							<div class="password-placeholder placeholder">
+								Password
+							</div>
+							<input type="password" name="password" class="login" show>
+						</div>
+						<button type="button" class="login">Accedi</button>
+	
+						<div class="or">oppure</div>
+	
+						<div class="anonymous-access">Accedi anonimamente</div>
+					</div>
+	
+					<div class="sign-up">
+						<span>Non hai un account? <strong><a href="https://google.com" style="color: inherit;">Iscriviti</a></strong></span>
+					</div>
 				</div>
-				<div class="bottom-nav">
-					<div class="left-nav">
-					</div>
-					<div class="logo">Pino</div>
-					<div class="righ-nav">
-					</div>
-				</div>
+
       </div>
     </div>
     <script type="module" defer src="/src/main.ts"></script>
